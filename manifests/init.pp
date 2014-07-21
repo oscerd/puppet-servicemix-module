@@ -8,15 +8,6 @@ class servicemix {
   $tmp = $servicemix::params::tmp
   $smixname = $servicemix::params::smixname
 
-  case $operatingsystem {
-    centos, redhat : {
-      notify { "Sono su Centos": }
-    }
-    debian, ubuntu : {
-      notify { "Sono su Debian": }
-    }
-  }
-
   exec { 'retrieve_servicemix': 
           command => "wget -q ${source} -P ${tmp}",
           unless => "ls ${path}${smixname}-${version}/" }
