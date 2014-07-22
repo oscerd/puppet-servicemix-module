@@ -8,13 +8,18 @@ class servicemix {
   $tmp = $servicemix::params::tmp
   $smixname = $servicemix::params::smixname
 
+  package { 'unzip':
+      ensure => present   
+  }
+
   exec { 'retrieve_servicemix': 
           command => "wget -q ${source} -P ${tmp}",
           unless => "ls ${path}${smixname}-${version}/" }
 
   exec { 'unzip_servicemix': 
           command => "unzip ${tmp}${smixname}-${version}.zip -d ${tmp}",
-          require => Exec['retrieve_servicemix'],
+          require => [ Exec['retrieve_servicemix'], 
+                       Package['unzip'] ],
           unless => "ls ${path}${smixname}-${version}/" }
 
   exec { 'mv_servicemix': 
