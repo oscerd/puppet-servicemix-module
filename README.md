@@ -7,7 +7,6 @@ Puppet Servicemix Module
   1. [Installation](#Installation)
   1. [Usage](#Usage)
   1. [Contributing](#Contributing)
-  1. [License](#License)
 
 ## <a name='Introduction'>Introduction</a>
 
