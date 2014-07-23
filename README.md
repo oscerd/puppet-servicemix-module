@@ -23,7 +23,13 @@ Clone this repository in a servicemix directory in your puppet module directory
 If you include the servicemix class the module will download the package, unzip it and move it 
 in a specific directory.
 
-	include servicemix
+	servicemix::setup { "servicemix":
+	  version => "5.0.1",
+	  family => "servicemix-5",
+	  smixname => "apache-servicemix",
+	  path => "/opt/",
+	  tmp => "/tmp/"
+	  }
 
 It's important to define a global search path for the `exec` resource to make module work. 
 This should usually be placed in `manifests/site.pp`:
