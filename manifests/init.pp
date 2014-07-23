@@ -9,7 +9,8 @@ class servicemix {
   $smixname = $servicemix::params::smixname
 
   package { 'unzip':
-      ensure => present   
+      ensure => installed,
+      alias => unzip   
   }
 
   exec { 'retrieve_servicemix': 
@@ -19,7 +20,7 @@ class servicemix {
   exec { 'unzip_servicemix': 
           command => "unzip ${tmp}${smixname}-${version}.zip -d ${tmp}",
           require => [ Exec['retrieve_servicemix'], 
-                       Package['unzip'] ],
+                       Package[unzip] ],
           unless => "ls ${path}${smixname}-${version}/" }
 
   exec { 'mv_servicemix': 
