@@ -36,10 +36,6 @@
       alias => unzip   
   }
 
-  # Resource Default for exec
-	Exec {
-	  path => ["/bin/", "/sbin/", "/usr/bin/", "/usr/sbin/"] }
-
   exec { 'retrieve_servicemix': 
           command => "wget -q ${source} -P ${defined_tmpdir}",
           unless => "ls ${defined_installdir}${smixname}-${version}/",

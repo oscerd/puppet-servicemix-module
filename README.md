@@ -26,7 +26,6 @@ in a specific directory.
 	servicemix::setup { "servicemix":
 	  version => "5.0.1",
 	  family => "servicemix-5",
-	  smixname => "apache-servicemix",
 	  path => "/opt/",
 	  tmp => "/tmp/"
 	  }
