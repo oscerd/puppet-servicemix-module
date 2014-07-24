@@ -1,11 +1,11 @@
   define servicemix::setup (
   $version = "5.0.1",
   $family = "servicemix-5",
-  $smixname = "apache-servicemix",
   $path = "/opt/",
   $tmp = "/tmp/",
   ) {
   
+  $smixname = "apache-servicemix"
   $source = "http://archive.apache.org/dist/servicemix/${family}/${version}/${smixname}-${version}.zip"
 
   package { 'unzip':
