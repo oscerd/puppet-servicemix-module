@@ -1,0 +1,1 @@
+Put your servicemix package in this folder, don't rename it. In the servicemix::setup specify the family (e.g. "servicemix-4", "servicemix-5") and the version (e.g. "5.0.1", "5.0.0", "4.5.1")
