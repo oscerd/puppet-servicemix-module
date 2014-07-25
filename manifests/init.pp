@@ -5,7 +5,8 @@
 # Provides: servicemix::setup resource definition
 #
 # Parameters: version, family, path, tmp
-#
+# Validation: version and family cannot be undef
+
 # Example:
 # servicemix::setup { "servicemix":
 #  version => "5.0.1",
