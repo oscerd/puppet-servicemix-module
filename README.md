@@ -20,12 +20,14 @@ Clone this repository in a servicemix directory in your puppet module directory
 
 ## <a name='Usage'>Usage</a>
 
-If you include the servicemix class the module will download the package, unzip it and move it 
-in a specific directory.
+If you include the servicemix class with mode 'web' the module will download the package, unzip it and move it 
+in a specific directory. If you use the mode 'local' the servicemix zip file must be place in /modules/module_name/files/ 
+folder
 
 	servicemix::setup { "servicemix":
 	  version => "5.0.1",
 	  family => "servicemix-5",
+	  mode => "local",
 	  path => "/opt/",
 	  tmp => "/tmp/"
 	  }
