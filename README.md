@@ -28,8 +28,8 @@ folder. The module will do the same operations without download the package.
 	  version => "5.0.1",
 	  family => "servicemix-5",
 	  mode => "local",
-	  path => "/opt/",
-	  tmp => "/tmp/"
+	  installdir => "/opt/",
+	  tmpdir => "/tmp/"
 	  }
 
 It's important to define a global search path for the `exec` resource to make module work. 
