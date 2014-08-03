@@ -5,9 +5,17 @@
   Exec {
     path => ["/bin/", "/sbin/", "/usr/bin/", "/usr/sbin/"] }
 
-	servicemix::setup { "servicemix":
-	  version => "5.0.1",
-	  family => "servicemix-5",
-	  installdir => "/opt/",
-	  tmpdir => "/tmp/"
-	  }
+  package { 'tar':
+      ensure => installed
+  }
+
+  package { 'unzip':
+      ensure => installed
+  }
+
+  servicemix::setup { "servicemix":
+      version => "5.0.1",
+      family => "servicemix-5",
+      installdir => "/opt/",
+      tmpdir => "/tmp/"
+  }

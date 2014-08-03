@@ -39,11 +39,6 @@
   
   $smixname = "apache-servicemix"
 
-  package { 'unzip':
-      ensure => installed,
-      alias => unzip   
-  }
-
   if ($mode == 'web'){
    
   $source = "http://archive.apache.org/dist/servicemix/${family}/${version}/${smixname}-${version}.zip"
@@ -56,7 +51,7 @@
   exec { 'unzip_servicemix': 
           command => "unzip ${defined_tmpdir}${smixname}-${version}.zip -d ${defined_tmpdir}",
           require => [ Exec['retrieve_servicemix'], 
-                       Package[unzip] ],
+                       Package['unzip'] ],
           unless => "ls ${defined_installdir}${smixname}-${version}/" }
 
   exec { 'mv_servicemix': 
@@ -64,10 +59,6 @@
           require => Exec['unzip_servicemix'],
           unless => "ls ${defined_installdir}${smixname}-${version}/" }
           
-  exec { 'clean_servicemix': 
-          command => "rm -rf ${defined_tmpdir}${smixname}-${version}.zip",
-          require => Exec['mv_servicemix'],
-          logoutput => "false" }
   }
   elsif ($mode == 'local') {
   
@@ -78,7 +69,7 @@
   exec { 'unzip_servicemix': 
           command => "unzip ${defined_tmpdir}${smixname}-${version}.zip -d ${defined_tmpdir}",
           require => [ File[ "${defined_tmpdir}${smixname}-${version}.zip" ], 
-                       Package[unzip] ],
+                       Package['unzip'] ],
           unless => "ls ${defined_installdir}${smixname}-${version}/" }
 
   exec { 'mv_servicemix': 
