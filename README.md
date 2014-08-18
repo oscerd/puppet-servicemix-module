@@ -12,7 +12,7 @@ Installation
 Clone this repository in a servicemix directory in your puppet module directory
 
 ```shell
-	git clone https://github.com/ancosen/puppet-servicemix-module servicemix
+	git clone https://github.com/oscerd/puppet-servicemix-module servicemix
 ```
 
 Usage
